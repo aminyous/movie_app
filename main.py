@@ -1,21 +1,29 @@
 from list_movies import list_movies
+from add_movie import add_movie
+from find_movie import find_movie
 
 print("*** Welcome to the Movie App ***")
 
-movies = ["Movie_1", "Movie_2", "Movie_3"]
+MENU_PROMPT = "Enter 'A' to add a movie, 'L' to see your movies, 'F' to find a movie by title or 'Q' to quit: "
 
-selection = input("Please enter 'A' for add, 'L' for show, 'Q' for quit").lower()
+movies = []
+
+selection = input(MENU_PROMPT).lower()
 
 while selection != 'q':
     if selection == "a":
-        pass
+        add_movie(movies)
     elif selection == "l":
-        list_movies(movies)
-    elif selection == "q":
-        break
+        if len(movies) == 0:
+            print("The List in empty!")
+        else:
+            list_movies(movies)
+    elif selection == "f":
+        title_input = input("Enter the title of the movie to be found: ")
+        print(find_movie(title_input, movies))
     else:
-        print("Your choice is not valid.")
+        print("Unknown command, please try again.")
 
-    selection = input("Please enter 'A' for add, 'L' for show, 'Q' for quit").lower()
+    selection = input(MENU_PROMPT).lower()
 
 print("*** GOOD BYE ***")
