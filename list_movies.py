@@ -1,5 +1,5 @@
+from print_movie import print_movie
+
+
 def list_movies(movies):
-    return [print(
-        f" {index + 1} - Title: {movie['title'].title()}, director: {movie['director'].title()}, release year :"
-        f" {movie['year']}")
-        for index, movie in enumerate(movies)]
+    return [print(f"{index+1} - {print_movie(movie)}") for index, movie in enumerate(movies)]

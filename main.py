@@ -19,8 +19,7 @@ while selection != 'q':
         else:
             list_movies(movies)
     elif selection == "f":
-        title_input = input("Enter the title of the movie to be found: ")
-        print(find_movie(title_input, movies))
+        print(find_movie(movies))
     else:
         print("Unknown command, please try again.")
 
