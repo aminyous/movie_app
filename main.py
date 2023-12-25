@@ -10,16 +10,20 @@ movies = []
 
 selection = input(MENU_PROMPT).lower()
 
+""" 
+Using first class function to improve user selection menu 
+"""
+
+user_options = {
+    "a": add_movie,
+    "l": list_movies,
+    "f": find_movie
+}
+
 while selection != 'q':
-    if selection == "a":
-        add_movie(movies)
-    elif selection == "l":
-        if len(movies) == 0:
-            print("The List in empty!")
-        else:
-            list_movies(movies)
-    elif selection == "f":
-        print(find_movie(movies))
+    if selection in user_options:
+        selected_function = user_options[selection]
+        selected_function(movies)
     else:
         print("Unknown command, please try again.")
 
